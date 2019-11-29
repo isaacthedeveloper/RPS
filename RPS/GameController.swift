@@ -8,7 +8,9 @@
 
 import UIKit
 
-class RandomBotGameController: UIViewController {
+class GameController: UIViewController {
+    
+    var bot: Bot?
     
     var roundNum = 0 {
         didSet {
@@ -65,9 +67,17 @@ class RandomBotGameController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    /*
+     - 2 bots: random one and tactical one
+     - pass the seleted bot into this screen
+     - call bot.play() instead botRandomChoice
+     
+     */
+    
     // MARK: Helper Methods
     func playGame(_ playerSymbol: Symbol) {
-        let botSymbol = botRandomChoice()
+        guard let bot = bot else { return }
+        let botSymbol = bot.play()
         print(botSymbol)
         // Determine the winner or loser
         let gameOutcome = playerSymbol.outcome(botChoice: botSymbol)
@@ -96,8 +106,8 @@ class RandomBotGameController: UIViewController {
     
     
     func playTactical(_ playerSymbol: Symbol) {
-        let botSymbol = botRandomChoice()
-        print("The tactical bot chose: \(botSymbol)")
+        //let botSymbol = botRandomChoice()
+        //print("The tactical bot chose: \(botSymbol)")
         
     }
     // Update Method
@@ -126,31 +136,34 @@ class RandomBotGameController: UIViewController {
     @objc func tapToContinue() {
         gameStatusLabel.text     = ""
         view.backgroundColor     = UIColor.systemBackground
-        paperButton.isEnabled    = true
-        paperButton.isHidden     = false
-        rockButton.isEnabled     = true
-        rockButton.isHidden      = false
-        scissorButton.isEnabled  = true
-        scissorButton.isHidden   = false
+        resetButtonState(button: paperButton)
+        resetButtonState(button: rockButton)
+        resetButtonState(button: scissorButton)
+    }
+    
+    func resetButtonState(button: UIButton) {
+        button.isEnabled    = true
+        button.isHidden     = false
     }
     
     func checkOutcome() {
+        let result: String
         if roundNum == 3 {
             if humanScore > robotScore {
-                print("Human wins")
+                result = "Human wins"
             } else if humanScore < robotScore {
-                print("Robot wins")
-            } else if humanScore == robotScore {
-                print("Draw")
+                result = "Robot wins"
+            } else {
+                result = "Draw"
             }
-            endGame()
+            endGame(result: result)
         }
     }
     
     
-    func endGame() {
+    func endGame(result: String) {
 
-        let alertController = UIAlertController(title: "GAME OVER", message: "Add code here to see if player won or lost.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "GAME OVER", message: result, preferredStyle: .alert)
         let alert = UIAlertAction(title: "Play Again", style: .default) { (_) in
             self.dismiss(animated: true, completion: nil)
         }

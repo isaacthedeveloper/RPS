@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let randomBot = "RandomBot"
+    let segueId = "showRandomBotGameController"
     // MARK: - Outlets
     @IBOutlet weak var randomBotButton: UIButton!
     @IBOutlet weak var tacticalBotButton: UIButton!
@@ -20,18 +20,28 @@ class ViewController: UIViewController {
         setupButtons()
     }
 
+    var bot: Bot?
+    
     // MARK: - Action
     @IBAction func randomBotSelected(_ sender: UIButton) {
-        performSegue(withIdentifier: randomBot, sender: sender)
+        bot = RandomBot()
+        performSegue(withIdentifier: segueId, sender: sender)
     }
     
     @IBAction func tacticalBotSelected(_ sender: UIButton) {
+        bot = TacticalBot()
+        performSegue(withIdentifier: segueId, sender: sender)
     }
     
     // MARK: - Helper Methods
     func setupButtons() {
         randomBotButton.layer.cornerRadius = 20.0
         tacticalBotButton.layer.cornerRadius = 20.0
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! GameController
+        vc.bot = bot
     }
     
 }

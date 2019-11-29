@@ -32,22 +32,22 @@ enum Symbol: String {
         }
     }
 }
-
-let randomizer = GKARC4RandomSource()
-// TODO: - REFACTOR
-func botRandomChoice() -> Symbol {
-    let botSymbol = randomizer.nextInt(upperBound: 3) // or 2
-    if botSymbol == 0 {
-        print("RandomSymbol is rock")
-        return .rock
-    } else if botSymbol == 1 {
-        print("Random Symbol is paper")
-        return .paper
-    } else {
-        print("Random Symbol is scissor")
-        return .scissor
-    }
-}
+//
+//
+//// TODO: - REFACTOR
+//func botRandomChoice() -> Symbol {
+//    let botSymbol = randomizer.nextInt(upperBound: 3) // or 2
+//    if botSymbol == 0 {
+//        print("RandomSymbol is rock")
+//        return .rock
+//    } else if botSymbol == 1 {
+//        print("Random Symbol is paper")
+//        return .paper
+//    } else {
+//        print("Random Symbol is scissor")
+//        return .scissor
+//    }
+//}
 
 /*
  TACTICAL BOT

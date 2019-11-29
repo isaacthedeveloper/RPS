@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		738A12E323919FB50014C6D6 /* Bots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A12E223919FB50014C6D6 /* Bots.swift */; };
+		738A12EB2391A6400014C6D6 /* RPSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A12EA2391A6400014C6D6 /* RPSTests.swift */; };
+		738A12F32391A66C0014C6D6 /* LogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A12F22391A66C0014C6D6 /* LogicTests.swift */; };
 		73F56EBC23903BD80016FA07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F56EBB23903BD80016FA07 /* AppDelegate.swift */; };
 		73F56EBE23903BD80016FA07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F56EBD23903BD80016FA07 /* SceneDelegate.swift */; };
 		73F56EC023903BD80016FA07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F56EBF23903BD80016FA07 /* ViewController.swift */; };
@@ -15,10 +18,25 @@
 		73F56EC823903BD90016FA07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F56EC623903BD90016FA07 /* LaunchScreen.storyboard */; };
 		73F56ED023904F690016FA07 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F56ECF23904F690016FA07 /* GameState.swift */; };
 		73F56ED2239052790016FA07 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F56ED1239052790016FA07 /* GameModel.swift */; };
-		73F56ED4239069B80016FA07 /* RandomBotGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F56ED3239069B80016FA07 /* RandomBotGameController.swift */; };
+		73F56ED4239069B80016FA07 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F56ED3239069B80016FA07 /* GameController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		738A12ED2391A6400014C6D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73F56EB023903BD80016FA07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73F56EB723903BD80016FA07;
+			remoteInfo = RPS;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		738A12E223919FB50014C6D6 /* Bots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bots.swift; sourceTree = "<group>"; };
+		738A12E82391A6400014C6D6 /* RPSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RPSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		738A12EA2391A6400014C6D6 /* RPSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSTests.swift; sourceTree = "<group>"; };
+		738A12EC2391A6400014C6D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		738A12F22391A66C0014C6D6 /* LogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicTests.swift; sourceTree = "<group>"; };
 		73F56EB823903BD80016FA07 /* RPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F56EBB23903BD80016FA07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73F56EBD23903BD80016FA07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,10 +47,17 @@
 		73F56EC923903BD90016FA07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73F56ECF23904F690016FA07 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		73F56ED1239052790016FA07 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
-		73F56ED3239069B80016FA07 /* RandomBotGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBotGameController.swift; sourceTree = "<group>"; };
+		73F56ED3239069B80016FA07 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		738A12E52391A6400014C6D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73F56EB523903BD80016FA07 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -43,10 +68,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		738A12E92391A6400014C6D6 /* RPSTests */ = {
+			isa = PBXGroup;
+			children = (
+				738A12EA2391A6400014C6D6 /* RPSTests.swift */,
+				738A12F22391A66C0014C6D6 /* LogicTests.swift */,
+				738A12EC2391A6400014C6D6 /* Info.plist */,
+			);
+			path = RPSTests;
+			sourceTree = "<group>";
+		};
 		73F56EAF23903BD80016FA07 = {
 			isa = PBXGroup;
 			children = (
 				73F56EBA23903BD80016FA07 /* RPS */,
+				738A12E92391A6400014C6D6 /* RPSTests */,
 				73F56EB923903BD80016FA07 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				73F56EB823903BD80016FA07 /* RPS.app */,
+				738A12E82391A6400014C6D6 /* RPSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,7 +105,8 @@
 				73F56EC123903BD80016FA07 /* Main.storyboard */,
 				73F56ECF23904F690016FA07 /* GameState.swift */,
 				73F56ED1239052790016FA07 /* GameModel.swift */,
-				73F56ED3239069B80016FA07 /* RandomBotGameController.swift */,
+				73F56ED3239069B80016FA07 /* GameController.swift */,
+				738A12E223919FB50014C6D6 /* Bots.swift */,
 				73F56EC423903BD90016FA07 /* Assets.xcassets */,
 				73F56EC623903BD90016FA07 /* LaunchScreen.storyboard */,
 				73F56EC923903BD90016FA07 /* Info.plist */,
@@ -79,6 +117,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		738A12E72391A6400014C6D6 /* RPSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 738A12EF2391A6400014C6D6 /* Build configuration list for PBXNativeTarget "RPSTests" */;
+			buildPhases = (
+				738A12E42391A6400014C6D6 /* Sources */,
+				738A12E52391A6400014C6D6 /* Frameworks */,
+				738A12E62391A6400014C6D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				738A12EE2391A6400014C6D6 /* PBXTargetDependency */,
+			);
+			name = RPSTests;
+			productName = RPSTests;
+			productReference = 738A12E82391A6400014C6D6 /* RPSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		73F56EB723903BD80016FA07 /* RPS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73F56ECC23903BD90016FA07 /* Build configuration list for PBXNativeTarget "RPS" */;
@@ -106,6 +162,10 @@
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Isaac Ballas";
 				TargetAttributes = {
+					738A12E72391A6400014C6D6 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 73F56EB723903BD80016FA07;
+					};
 					73F56EB723903BD80016FA07 = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
@@ -125,11 +185,19 @@
 			projectRoot = "";
 			targets = (
 				73F56EB723903BD80016FA07 /* RPS */,
+				738A12E72391A6400014C6D6 /* RPSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		738A12E62391A6400014C6D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73F56EB623903BD80016FA07 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,6 +211,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		738A12E42391A6400014C6D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				738A12F32391A66C0014C6D6 /* LogicTests.swift in Sources */,
+				738A12EB2391A6400014C6D6 /* RPSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73F56EB423903BD80016FA07 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -150,13 +227,22 @@
 				73F56ED2239052790016FA07 /* GameModel.swift in Sources */,
 				73F56EC023903BD80016FA07 /* ViewController.swift in Sources */,
 				73F56ED023904F690016FA07 /* GameState.swift in Sources */,
+				738A12E323919FB50014C6D6 /* Bots.swift in Sources */,
 				73F56EBC23903BD80016FA07 /* AppDelegate.swift in Sources */,
-				73F56ED4239069B80016FA07 /* RandomBotGameController.swift in Sources */,
+				73F56ED4239069B80016FA07 /* GameController.swift in Sources */,
 				73F56EBE23903BD80016FA07 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		738A12EE2391A6400014C6D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73F56EB723903BD80016FA07 /* RPS */;
+			targetProxy = 738A12ED2391A6400014C6D6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		73F56EC123903BD80016FA07 /* Main.storyboard */ = {
@@ -178,6 +264,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		738A12F02391A6400014C6D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SKR3LP38N7;
+				INFOPLIST_FILE = RPSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.isaacballas.RPSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RPS.app/RPS";
+			};
+			name = Debug;
+		};
+		738A12F12391A6400014C6D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SKR3LP38N7;
+				INFOPLIST_FILE = RPSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.isaacballas.RPSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RPS.app/RPS";
+			};
+			name = Release;
+		};
 		73F56ECA23903BD90016FA07 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -331,6 +457,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		738A12EF2391A6400014C6D6 /* Build configuration list for PBXNativeTarget "RPSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				738A12F02391A6400014C6D6 /* Debug */,
+				738A12F12391A6400014C6D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		73F56EB323903BD80016FA07 /* Build configuration list for PBXProject "RPS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

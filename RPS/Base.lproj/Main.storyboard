@@ -35,7 +35,6 @@
                                         </state>
                                         <connections>
                                             <action selector="randomBotSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iDw-vM-JgA"/>
-                                            <segue destination="riM-zi-dOR" kind="show" identifier="RandomBot" id="YQc-r3-3IG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DD0-wq-P9G">
@@ -64,16 +63,17 @@
                     <connections>
                         <outlet property="randomBotButton" destination="jWd-MC-whh" id="sGy-QN-jQB"/>
                         <outlet property="tacticalBotButton" destination="DD0-wq-P9G" id="rg6-D7-AKF"/>
+                        <segue destination="riM-zi-dOR" kind="show" identifier="showRandomBotGameController" id="nUa-3I-ohU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135" y="104"/>
         </scene>
-        <!--Random Bot Game Controller-->
+        <!--Game Controller-->
         <scene sceneID="oeD-Os-PRF">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="riM-zi-dOR" customClass="RandomBotGameController" customModule="RPS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="riM-zi-dOR" customClass="GameController" customModule="RPS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U5A-ke-z8l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
