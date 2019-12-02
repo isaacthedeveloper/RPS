@@ -9,6 +9,7 @@
 import UIKit
 
 class GameController: UIViewController {
+    let generator = UINotificationFeedbackGenerator()
     var bot: Bot?
     var roundNum = 0 {
         didSet { roundNumber.text = "Round: \(roundNum)/3" }
@@ -94,12 +95,14 @@ class GameController: UIViewController {
         checkOutcome()
         switch gameState {
         case .win:
+            generator.notificationOccurred(.success)
             view.backgroundColor = UIColor.systemGreen
             humanScore += 1
             outcomeLabel.text    = "YOU WIN"
             gameStatusLabel.text = "Tap anywhere to continue to the next round."
         case .lose:
             view.backgroundColor = UIColor.systemRed
+            generator.notificationOccurred(.warning)
             robotScore += 1
             outcomeLabel.text    = "YOU LOSE"
             gameStatusLabel.text = "Tap anywhere to continue to the next round."
