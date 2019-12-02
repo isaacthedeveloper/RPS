@@ -9,9 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var bot: Bot?
     let segueId = "showRandomBotGameController"
     // MARK: - Outlets
-    @IBOutlet weak var randomBotButton: UIButton!
+    @IBOutlet weak var randomBotButton:   UIButton!
     @IBOutlet weak var tacticalBotButton: UIButton!
     
     // MARK: - Life Cycle
@@ -19,9 +20,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupButtons()
     }
-
-    var bot: Bot?
-    
     // MARK: - Action
     @IBAction func randomBotSelected(_ sender: UIButton) {
         bot = RandomBot()

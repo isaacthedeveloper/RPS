@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+/// Determins the state the game is in. Start -> New Game, win , lose or draw are self explanatory. 
 enum GameState: String {
     case start
     case win

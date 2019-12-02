@@ -9,35 +9,27 @@
 import UIKit
 
 class GameController: UIViewController {
-    
     var bot: Bot?
-    
     var roundNum = 0 {
-        didSet {
-            roundNumber.text = "Round: \(roundNum)/3"
-        }
+        didSet { roundNumber.text = "Round: \(roundNum)/3" }
     }
-    
     var humanScore = 0 {
-        didSet {
-            humanScoreLabel.text = String(humanScore)
-        }
+        didSet { humanScoreLabel.text = String(humanScore) }
+    }
+    var robotScore = 0 {
+        didSet { botScoreLabel.text = String(robotScore) }
     }
     
-    var robotScore = 0 {
-        didSet {
-            botScoreLabel.text = String(robotScore)
-        }
-    }
     // MARK: - Outlets
     @IBOutlet weak var gameStatusLabel: UILabel!
-    @IBOutlet weak var roundNumber: UILabel!
-    @IBOutlet weak var robotIconLabel: UILabel!
-    @IBOutlet weak var rockButton: UIButton!
-    @IBOutlet weak var paperButton: UIButton!
-    @IBOutlet weak var scissorButton: UIButton!
+    @IBOutlet weak var roundNumber    : UILabel!
+    @IBOutlet weak var robotChoice    : UILabel!
+    @IBOutlet weak var rockButton     : UIButton!
+    @IBOutlet weak var paperButton    : UIButton!
+    @IBOutlet weak var scissorButton  : UIButton!
     @IBOutlet weak var humanScoreLabel: UILabel!
-    @IBOutlet weak var botScoreLabel: UILabel!
+    @IBOutlet weak var botScoreLabel  : UILabel!
+    @IBOutlet weak var outcomeLabel   : UILabel!
     @IBOutlet var gameView: UIView! {
         didSet {
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapToContinue))
@@ -63,36 +55,26 @@ class GameController: UIViewController {
         playGame(.scissor)
     }
     
-    @IBAction func newGameTapped(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     /*
      - 2 bots: random one and tactical one
      - pass the seleted bot into this screen
      - call bot.play() instead botRandomChoice
-     
      */
     
     // MARK: Helper Methods
+    /// Plays the game with selected mode.
+    /// - Parameter playerSymbol: The players chosen symbol (Rock, Paper, Scissor)
     func playGame(_ playerSymbol: Symbol) {
         guard let bot = bot else { return }
         let botSymbol = bot.play()
-        print(botSymbol)
         // Determine the winner or loser
         let gameOutcome = playerSymbol.outcome(botChoice: botSymbol)
-        print("The outcome is: \(gameOutcome)")
-        // update method goes here
         update(for: gameOutcome)
-        // Place the robot choice image here - replace the robot icon with what they picked.
-        robotIconLabel.text = botSymbol.rawValue
-        // Disable and hide all buttons
-        rockButton.isEnabled = false
-        rockButton.isHidden = true
-        paperButton.isEnabled = false
-        paperButton.isHidden = true
-        scissorButton.isEnabled = false
-        scissorButton.isHidden = true
+        // Robot symbol
+        robotChoice.text = botSymbol.rawValue
+        hideButtons(button: rockButton)
+        hideButtons(button: paperButton)
+        hideButtons(button: scissorButton)
         // switch statement for the playerSymbol, whichever they chose, unhide it and re anable it.
         switch playerSymbol {
         case .rock:
@@ -104,13 +86,8 @@ class GameController: UIViewController {
         }
     }
     
-    
-    func playTactical(_ playerSymbol: Symbol) {
-        //let botSymbol = botRandomChoice()
-        //print("The tactical bot chose: \(botSymbol)")
-        
-    }
-    // Update Method
+    /// Updates the state of the game, and UI elements.
+    /// - Parameter gameState: enum describing the state of the game.
     func update(for gameState: GameState) {
         gameStatusLabel.text = gameState.rawValue
         roundNum += 1
@@ -119,15 +96,18 @@ class GameController: UIViewController {
         case .win:
             view.backgroundColor = UIColor.systemGreen
             humanScore += 1
+            outcomeLabel.text    = "YOU WIN"
             gameStatusLabel.text = "Tap anywhere to continue to the next round."
         case .lose:
             view.backgroundColor = UIColor.systemRed
             robotScore += 1
+            outcomeLabel.text    = "YOU LOSE"
             gameStatusLabel.text = "Tap anywhere to continue to the next round."
         case .draw:
+            view.backgroundColor = UIColor.systemYellow
             humanScore += 1
             robotScore += 1
-            view.backgroundColor = UIColor.systemYellow
+            outcomeLabel.text    = "YOU TIED"
             gameStatusLabel.text = "Tap anywhere to continue to the next round."
         default: break
         }
@@ -136,6 +116,8 @@ class GameController: UIViewController {
     @objc func tapToContinue() {
         gameStatusLabel.text     = ""
         view.backgroundColor     = UIColor.systemBackground
+        robotChoice.text         = ""
+        outcomeLabel.text        = ""
         resetButtonState(button: paperButton)
         resetButtonState(button: rockButton)
         resetButtonState(button: scissorButton)
@@ -144,6 +126,11 @@ class GameController: UIViewController {
     func resetButtonState(button: UIButton) {
         button.isEnabled    = true
         button.isHidden     = false
+    }
+    
+    func hideButtons(button: UIButton) {
+        button.isEnabled = false
+        button.isHidden  = true
     }
     
     func checkOutcome() {
@@ -162,7 +149,6 @@ class GameController: UIViewController {
     
     
     func endGame(result: String) {
-
         let alertController = UIAlertController(title: "GAME OVER", message: result, preferredStyle: .alert)
         let alert = UIAlertAction(title: "Play Again", style: .default) { (_) in
             self.dismiss(animated: true, completion: nil)
@@ -170,8 +156,4 @@ class GameController: UIViewController {
         alertController.addAction(alert)
         present(alertController, animated: true, completion: nil)
     }
-    
-    
-    
-
 }
