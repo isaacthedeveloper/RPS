@@ -2,7 +2,7 @@
 //  RandomBot.swift
 //  RPS
 //
-//  Created by Isaac Ballas on 2019-11-29.
+//  Created by Isaac Ballas on 2019-12-01.
 //  Copyright © 2019 Isaac Ballas. All rights reserved.
 //
 
@@ -13,30 +13,19 @@ protocol Bot {
     func play() -> Symbol
 }
 
-extension Bot {
-
-}
-
 class RandomBot: Bot {
     let randomizer = GKARC4RandomSource()
     func play() -> Symbol {
-        let botSymbol = randomizer.nextInt(upperBound: 3) // or 2
+        let botSymbol = randomizer.nextInt(upperBound: 3)
         if botSymbol == 0 {
-            print("RandomSymbol is rock")
             return .rock
         } else if botSymbol == 1 {
-            print("Random Symbol is paper")
             return .paper
         } else {
-            print("Random Symbol is scissor")
             return .scissor
         }
     }
 }
-// DRY
-// KISS
-// SOLID // complicated
-
 
 class TacticalBot: Bot {
     var currentOption: Symbol?

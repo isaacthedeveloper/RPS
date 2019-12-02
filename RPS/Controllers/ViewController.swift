@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  RPS
 //
-//  Created by Isaac Ballas on 2019-11-28.
+//  Created by Isaac Ballas on 2019-12-01.
 //  Copyright © 2019 Isaac Ballas. All rights reserved.
 //
 

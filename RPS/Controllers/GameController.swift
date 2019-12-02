@@ -2,7 +2,7 @@
 //  RandomBotGameController.swift
 //  RPS
 //
-//  Created by Isaac Ballas on 2019-11-28.
+//  Created by Isaac Ballas on 2019-12-28.
 //  Copyright © 2019 Isaac Ballas. All rights reserved.
 //
 
@@ -109,7 +109,6 @@ class GameController: UIViewController {
             robotScore += 1
             outcomeLabel.text    = "YOU TIED"
             gameStatusLabel.text = "Tap anywhere to continue to the next round."
-        default: break
         }
     }
     
