@@ -139,11 +139,11 @@ class GameController: UIViewController {
         let result: String
         if roundNum == 3 {
             if humanScore > robotScore {
-                result = "Human wins"
+                result == "Human wins"
             } else if humanScore < robotScore {
-                result = "Robot wins"
+                result == "Robot wins"
             } else {
-                result = "Draw"
+                result == "Draw"
             }
             endGame(result: result)
         }
